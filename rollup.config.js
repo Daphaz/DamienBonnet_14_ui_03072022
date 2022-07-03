@@ -3,6 +3,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
+import alias from '@rollup/plugin-alias';
+import path from 'path';
 
 const packageJson = require('./package.json');
 
@@ -22,6 +24,15 @@ export default [
       },
     ],
     plugins: [
+      alias({
+        resolve: ['', '.jsx', '.js', '.tsx', '.ts', '.scss'],
+        entries: [
+          {
+            find: '@',
+            replacement: path.resolve(__dirname, './lib'),
+          },
+        ],
+      }),
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
