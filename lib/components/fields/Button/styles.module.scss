@@ -1,4 +1,29 @@
+@import '@/styles/shared.scss';
+
+/* #region  /**=========== Blocks =========== */
 .btn {
-  padding: 2vh 2vw;
-  font-size: 1.6rem;
+  position: relative;
+  @extend %center;
+  padding: 0.5rem 1.2rem;
+  font-size: 1.2rem;
+  font-family: $font-body;
+  border-radius: $rad;
+  box-shadow: $bs-card;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
 }
+/* #endregion  /**======== Blocks =========== */
+
+/* #region  /**=========== Elements =========== */
+.primary {
+  background-color: $clr-primary;
+  color: $clr-white;
+
+  &:active {
+    box-shadow: $bs-medium;
+  }
+}
+/* #endregion  /**======== Elements =========== */

@@ -1,0 +1,30 @@
+%flex {
+  display: flex;
+}
+
+%align {
+  @extend %flex;
+  align-items: center;
+}
+
+%between {
+  @extend %align;
+  justify-content: space-between;
+}
+
+%center {
+  @extend %align;
+  justify-content: center;
+}
+
+%flex-col {
+  @extend %flex;
+  flex-direction: column;
+}
+
+%fit {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}

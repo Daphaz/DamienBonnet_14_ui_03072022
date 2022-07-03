@@ -12,7 +12,7 @@ export interface IButtonProps
 }
 
 const Button = ({ label, className, ...rest }: IButtonProps) => {
-  const classes = clsx(s.btn, className);
+  const classes = clsx(s.btn, s.primary, className);
   return (
     <button {...rest} className={classes}>
       {label}
