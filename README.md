@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to HRnet React component library 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://badge.fury.io/js/@daphaz%2Fhrnet-ui.svg" />
   <a href="in progress" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
