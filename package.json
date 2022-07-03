@@ -1,6 +1,6 @@
 {
   "name": "@daphaz/hrnet-ui",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "This is the react component library for HRnet",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -17,7 +17,8 @@
     "lint:strict": "eslint --max-warnings=0 lib",
     "lint:fix": "eslint lib --fix && npm run format",
     "format": "prettier -w .",
-    "format:check": "prettier -c ."
+    "format:check": "prettier -c .",
+    "semantic-release": "semantic-release --branches main"
   },
   "keywords": [],
   "author": "Damien Bonnet",
@@ -43,6 +44,11 @@
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "semantic-release": "^19.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Daphaz/DamienBonnet_14_ui_03072022.git"
   }
 }
