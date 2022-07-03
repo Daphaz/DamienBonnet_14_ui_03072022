@@ -14,7 +14,8 @@
 ### ✨ [Demo](in progress)
 
 ## Install
-> We recommand to use a nodejs version manager like *nvm* and launch nvm use command to get the right Nodejs version.
+
+> We recommand to use a nodejs version manager like _nvm_ and launch nvm use command to get the right Nodejs version.
 
 ```sh
 npm install

@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/build
+/dist
 
 # misc
 .DS_Store
@@ -37,8 +37,8 @@ CHANGELOG.md
 package.json
 package-lock.json
 
-# public files
-public/*
+# github files
+.github/*
 
 # vscode
 .vscode/*
