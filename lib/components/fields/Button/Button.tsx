@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import React from 'react';
 
+import s from './styles.module.scss';
+
 export interface IButtonProps
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -10,7 +12,7 @@ export interface IButtonProps
 }
 
 const Button = ({ label, className, ...rest }: IButtonProps) => {
-  const classes = clsx(className);
+  const classes = clsx(s.btn, className);
   return (
     <button {...rest} className={classes}>
       {label}
