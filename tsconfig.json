@@ -2,6 +2,10 @@
   "compilerOptions": {
     // Default
     "target": "es5",
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["/lib/*"]
+		},
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,

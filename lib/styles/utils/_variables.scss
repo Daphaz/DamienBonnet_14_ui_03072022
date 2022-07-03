@@ -1,0 +1,43 @@
+:root {
+  --font-body: 'Roboto', sans-serif;
+  --clr-white: #ffffff;
+  --clr-black: #020203;
+  --clr-primary: #ff0101;
+  --clr-blue: #4ab8ff;
+  --clr-yellow: #fdcc0c;
+  --clr-pink: #fd5181;
+  --clr-grey-700: #282d30;
+  --clr-grey-600: #c4c4c480;
+  --clr-grey-500: #74798c;
+  --clr-grey-400: #9b9eac;
+  --clr-grey-300: #dedede;
+  --clr-grey-200: #fbfbfb;
+  --bs-medium: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --bs-card: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  --rad: 5px;
+}
+
+/* #region  /**=========== Fonts =========== */
+$font-body: var(--font-body);
+/* #endregion  /**======== Fonts =========== */
+
+/* #region  /**=========== Colors =========== */
+$clr-white: var(--clr-white);
+$clr-black: var(--clr-black);
+$clr-primary: var(--clr-primary);
+$clr-blue: var(--clr-blue);
+$clr-yellow: var(--clr-yellow);
+$clr-pink: var(--clr-pink);
+$clr-grey-700: var(--clr-grey-700);
+$clr-grey-600: var(--clr-grey-600);
+$clr-grey-500: var(--clr-grey-500);
+$clr-grey-400: var(--clr-grey-400);
+$clr-grey-300: var(--clr-grey-300);
+$clr-grey-200: var(--clr-grey-200);
+/* #endregion  /**======== Colors =========== */
+
+/* #region  /**=========== Utils =========== */
+$rad: var(--rad);
+$bs-medium: var(--bs-medium);
+$bs-card: var(--bs-card);
+/* #endregion  /**======== Utils =========== */
