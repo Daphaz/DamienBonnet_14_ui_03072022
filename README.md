@@ -18,7 +18,11 @@
 > We recommand to use a nodejs version manager like _nvm_ and launch nvm use command to get the right Nodejs version.
 
 ```sh
-npm install
+# for install the package
+npm i @daphaz/hrnet-ui
+
+# for install locally
+npm i
 ```
 
 ## Usage
