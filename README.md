@@ -27,6 +27,32 @@ npm i
 
 ## Usage
 
+### Styling Guide
+
+> You need to implement some css variables for this library.
+
+```css
+// You need import your font here is Poppins for example
+:root {
+  --font-body: 'Poppins', sans-serif;
+  --clr-white: #fcfcfc;
+  --clr-black: #231f20;
+  --clr-primary: #00798c;
+  --clr-primary-light: #56ddf2;
+  --clr-secondary: #dd6e42;
+  --clr-secondary-light: #f4ae93;
+  --clr-red: #d1495b;
+  --clr-green: #698f3f;
+  --clr-yellow: #e0be36;
+  --clr-grey-700: #282d30;
+  --clr-grey-600: #c4c4c480;
+  --clr-grey-500: #74798c;
+  --clr-grey-400: #9b9eac;
+  --clr-grey-300: #dedede;
+  --clr-grey-200: #fbfbfb;
+}
+```
+
 ```sh
 # for build the lib in production
 npm run rollup
