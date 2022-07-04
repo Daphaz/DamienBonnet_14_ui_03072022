@@ -1,59 +1,57 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React from 'react';
 
 import Button from './Button';
 import { ButtonVariant } from './enums';
 
 describe('<Button/> test suite', () => {
   it('Should be render correctly', () => {
-    const { getByTestId, container } = render(
-      <Button label='test label' data-testid='btn-element' />
+    render(
+      <Button type='button' label='test label' data-testid='btn-element' />
     );
 
-    expect(getByTestId('btn-element')).toBeTruthy();
+    expect(screen.getByTestId('btn-element')).toBeTruthy();
 
-    const span = container.querySelector('span');
-    expect(span?.textContent).toBe('test label');
-    expect(span?.classList.contains('text')).toBeTruthy();
+    const span = screen.getByText(/test label/i);
+    expect(span.textContent).toBe('test label');
+    expect(span.classList.contains('text')).toBeTruthy();
   });
 
   it('Should be disabled when attribute is set', () => {
-    const { container } = render(<Button label='test label' disabled />);
+    render(<Button type='button' label='test label' disabled />);
 
-    const btn = container.querySelector('button');
-    const isDisabled = btn?.disabled;
+    const btn = screen.getByRole<HTMLButtonElement>('button');
+    const isDisabled = btn.disabled;
     expect(isDisabled).toBeTruthy();
   });
 
   it('Should be variant secondary when prop is set', () => {
-    const { container } = render(
-      <Button label='test label' variant={ButtonVariant.Secondary} />
+    render(
+      <Button
+        type='button'
+        label='test label'
+        variant={ButtonVariant.Secondary}
+      />
     );
-
-    const btn = container.querySelector('button');
-    expect(btn?.classList.contains('secondary')).toBeTruthy();
+    expect(screen.getByRole('button')).toHaveClass('secondary');
   });
 
   it('Should be borderer when prop is set', () => {
-    const { container } = render(<Button label='test label' borderer />);
-
-    const btn = container.querySelector('button');
-    expect(btn?.classList.contains('border')).toBeTruthy();
+    render(<Button type='button' label='test label' borderer />);
+    expect(screen.getByRole('button')).toHaveClass('border');
   });
 
   it('Should be loading when prop is set', () => {
-    const { container, asFragment } = render(
-      <Button label='test label' loading />
-    );
-
-    const btn = container.querySelector('button');
-    expect(btn).toHaveClass('loading');
+    render(<Button type='button' label='test label' loading />);
+    expect(screen.getByRole('button')).toHaveClass('loading');
   });
 
   it('handleReady is call when mouse is down', async () => {
     const mockOnMouseDown = jest.fn();
-    render(<Button label='test label' onMouseDown={mockOnMouseDown} />);
+    render(
+      <Button type='button' label='test label' onMouseDown={mockOnMouseDown} />
+    );
 
     expect(mockOnMouseDown).not.toHaveBeenCalled();
     await userEvent.click(screen.getByRole('button', { name: /test label/i }));
@@ -63,7 +61,12 @@ describe('<Button/> test suite', () => {
   it('handlePressed is call when mouse is up or leave', async () => {
     const mockFn = jest.fn();
     render(
-      <Button label='test label' onMouseLeave={mockFn} onMouseUp={mockFn} />
+      <Button
+        type='button'
+        label='test label'
+        onMouseLeave={mockFn}
+        onMouseUp={mockFn}
+      />
     );
 
     expect(mockFn).not.toHaveBeenCalled();

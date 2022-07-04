@@ -3,8 +3,8 @@ import React, { MouseEvent, useState } from 'react';
 
 import s from './styles.module.scss';
 
-import { Spinner } from '../../common';
 import { ButtonVariant } from './enums';
+import { Spinner } from '../../common';
 
 export interface IButtonProps
   extends React.DetailedHTMLProps<
@@ -35,7 +35,7 @@ const Button = ({
     s.btn,
     s[variant],
     {
-      [s.isPressed]: state == 'pressed',
+      [s.isPressed]: state === 'pressed',
       [s.bs]: shadow,
       [s.border]: borderer,
       [s.loading]: loading,
