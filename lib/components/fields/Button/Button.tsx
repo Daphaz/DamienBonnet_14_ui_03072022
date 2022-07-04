@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import React, { MouseEvent, useState } from 'react';
 
 import s from './styles.module.scss';
 
@@ -25,6 +25,9 @@ const Button = ({
   borderer = false,
   loading = false,
   className,
+  onMouseDown,
+  onMouseUp,
+  onMouseLeave,
   ...rest
 }: IButtonProps) => {
   const [state, setState] = useState<'ready' | 'pressed'>('ready');
@@ -40,13 +43,24 @@ const Button = ({
     className
   );
 
+  const handleReady = (e: MouseEvent<HTMLButtonElement>) => {
+    setState('ready');
+    onMouseDown && onMouseDown(e);
+  };
+
+  const handlePressed = (e: MouseEvent<HTMLButtonElement>) => {
+    setState('pressed');
+    onMouseUp && onMouseUp(e);
+    onMouseLeave && onMouseLeave(e);
+  };
+
   return (
     <button
       {...rest}
       className={classes}
-      onMouseDown={() => setState('pressed')}
-      onMouseUp={() => setState('ready')}
-      onMouseLeave={() => setState('ready')}
+      onMouseDown={handlePressed}
+      onMouseUp={handleReady}
+      onMouseLeave={handleReady}
     >
       {loading && (
         <span className={s.spinner}>
