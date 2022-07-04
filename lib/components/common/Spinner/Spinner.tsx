@@ -5,7 +5,21 @@ import s from './styles.module.scss';
 export interface ISpinnerProps {
   width?: number;
   height?: number;
-  color?: 'white' | 'black';
+  color?:
+    | 'white'
+    | 'black'
+    | 'primary'
+    | 'primary-light'
+    | 'secondary'
+    | 'secondary-light'
+    | 'green'
+    | 'yellow'
+    | 'grey-700'
+    | 'grey-600'
+    | 'grey-500'
+    | 'grey-400'
+    | 'grey-300'
+    | 'grey-200';
 }
 
 const Spinner = ({

@@ -1,0 +1,52 @@
+import { Canvas, Meta, Story, ArgsTable, Props } from '@storybook/addon-docs';
+import Spinner from './Spinner';
+
+<Meta title='Components/Common/Spinner' component={Spinner} />
+
+# Spinner
+
+Spinner stories are based on width and height.
+
+you can provide different props:
+
+- width of spinner
+- height of spinner
+- color of circle
+
+Let's have a look at our spinner✨
+
+## Summary
+
+> Black background is just for display white and grey-200 spinner
+
+<Canvas>
+  <Story
+    name='Explorer'
+    args={{
+      width: 50,
+      height: 50,
+      color: 'black',
+    }}
+  >
+    {(args) => (
+      <div
+        style={{
+          width: args.width + 15,
+          height: args.height + 15,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          background:
+            args.color === 'white' || args.color === 'grey-200'
+              ? 'black'
+              : 'transparent',
+          borderRadius: 12,
+        }}
+      >
+        <Spinner {...args} />
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Spinner} />
