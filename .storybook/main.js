@@ -1,12 +1,16 @@
 const path = require('path');
 
 module.exports = {
+  features: {
+    previewMdx2: true,
+  },
   stories: ['../lib/**/*.stories.mdx', '../lib/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
   ],
+  staticDirs: [path.resolve(__dirname, '../lib/static')],
   framework: '@storybook/react',
   webpackFinal: async (config) => {
     config.module.rules.push({
@@ -29,11 +33,12 @@ module.exports = {
 
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.resolve(__dirname, '../lib'),
+      lib: path.resolve(__dirname, '../lib'),
     };
     return config;
   },
   core: {
     builder: 'webpack5',
+    disableTelemetry: true,
   },
 };

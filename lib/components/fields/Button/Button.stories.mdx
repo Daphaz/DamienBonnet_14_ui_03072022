@@ -1,0 +1,146 @@
+import { Canvas, Meta, Story, ArgsTable, Props } from '@storybook/addon-docs';
+import Button from './Button';
+import { ButtonVariant } from './enums';
+
+<Meta title='Components/Fields/Button' component={Button} />
+
+# Button
+
+Button stories are based on ButtonVariant.
+
+you can provide different props:
+
+- loading props change text to spinner
+- adding disable attribute make the button disable
+- borderer props get a style border change with ButtonVariant
+- shadow props add box-shadow
+- you can add all button attribute , also className
+- label props is the text inside the button
+
+Let's have a look at our buttons✨
+
+## Summary
+
+<Canvas>
+  <Story
+    name='Explorer'
+    args={{
+      label: 'Explorer',
+      shadow: true,
+      variant: ButtonVariant.Primary,
+      borderer: false,
+      loading: false,
+    }}
+  >
+    {(args) => <Button {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Button} />
+
+## Disable
+
+<Story
+  name='Disable'
+  parameters={{
+    controls: { hideNoControlsWarning: true },
+  }}
+>
+  <div
+    style={{
+      display: 'flex',
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      flexWrap: 'wrap',
+      gap: 12,
+    }}
+  >
+    <Button label='Basic' disabled shadow={false} />
+    <Button label='Shadow' disabled />
+    <Button label='Borderer' disabled borderer shadow={false} />
+    <Button label='Borderer shadow' disabled borderer />
+    <Button loading label='disable' disabled shadow={false} />
+    <Button loading label='disable' disabled />
+    <Button loading label='disable' disabled borderer shadow={false} />
+    <Button loading label='disable' disabled borderer />
+  </div>
+</Story>
+
+## Primary
+
+<Story
+  name='Primary'
+  parameters={{
+    controls: { hideNoControlsWarning: true },
+  }}
+>
+  <div
+    style={{
+      display: 'flex',
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      flexWrap: 'wrap',
+      gap: 12,
+    }}
+  >
+    <Button label='Basic' shadow={false} />
+    <Button label='Shadow' />
+    <Button label='Borderer ' borderer shadow={false} />
+    <Button label='Borderer shadow' borderer />
+    <Button label='load b' loading shadow={false} />
+    <Button label='load b' loading />
+    <Button label='load b' loading borderer shadow={false} />
+    <Button label='load b' borderer loading />
+  </div>
+</Story>
+
+## Secondary
+
+<Story
+  name='Secondary'
+  parameters={{
+    controls: { hideNoControlsWarning: true },
+  }}
+>
+  <div
+    style={{
+      display: 'flex',
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      flexWrap: 'wrap',
+      gap: 12,
+    }}
+  >
+    <Button variant={ButtonVariant.Secondary} label='Basic' shadow={false} />
+    <Button variant={ButtonVariant.Secondary} label='Shadow' />
+    <Button
+      variant={ButtonVariant.Secondary}
+      label='Borderer'
+      borderer
+      shadow={false}
+    />
+    <Button
+      variant={ButtonVariant.Secondary}
+      label='Borderer shadow'
+      borderer
+    />
+    <Button
+      variant={ButtonVariant.Secondary}
+      label='load b'
+      loading
+      shadow={false}
+    />
+    <Button variant={ButtonVariant.Secondary} label='load b' loading />
+    <Button
+      variant={ButtonVariant.Secondary}
+      label='load b'
+      loading
+      borderer
+      shadow={false}
+    />
+    <Button variant={ButtonVariant.Secondary} label='load b' borderer loading />
+  </div>
+</Story>

@@ -1,18 +1,36 @@
-@import '../../../styles/shared.scss';
+@import 'lib/styles/shared.scss';
 
 /* #region  /**=========== Blocks =========== */
 .btn {
   position: relative;
   @extend %center;
-  padding: 0.5rem 1.2rem;
-  font-size: 1.2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   font-family: $font-body;
-  border-radius: $rad;
-  box-shadow: $bs-card;
+  border-radius: 12px;
+  height: 40px;
+  min-width: 12rem;
+  width: auto;
+  line-height: 2.5rem;
+  padding: 0 0.875rem;
+  text-align: center;
+  overflow: hidden;
+  transform: scale(1);
+  text-rendering: geometricprecision;
+  -webkit-tap-highlight-color: #0000;
+  -webkit-font-smoothing: antialiased;
+  transition: all 0.25s ease;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
 
   &:focus,
   &:focus-visible {
     outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 }
 /* #endregion  /**======== Blocks =========== */
@@ -21,9 +39,75 @@
 .primary {
   background-color: $clr-primary;
   color: $clr-white;
-
-  &:active {
-    box-shadow: $bs-medium;
+  &.bs {
+    box-shadow: 0 4px 14px 0 $clr-primary-light;
+    &:disabled {
+      box-shadow: 0 4px 14px 0 $clr-grey-300;
+    }
+  }
+  &.border {
+    background-color: transparent;
+    border-color: $clr-primary;
+    color: $clr-primary;
+    &:disabled {
+      border-color: $clr-grey-400;
+      background-color: transparent !important;
+    }
+  }
+  &:disabled {
+    background-color: $clr-grey-400;
+    color: $clr-grey-700;
+  }
+}
+.secondary {
+  background-color: $clr-secondary;
+  color: $clr-white;
+  &.bs {
+    box-shadow: 0 4px 14px 0 $clr-secondary-light;
+    &:disabled {
+      box-shadow: 0 4px 14px 0 $clr-grey-300;
+    }
+  }
+  &.border {
+    background-color: transparent;
+    border-color: $clr-secondary;
+    color: $clr-secondary;
+    &:disabled {
+      border-color: $clr-grey-400;
+      background-color: transparent !important;
+    }
+  }
+  &:disabled {
+    background-color: $clr-grey-400;
+    color: $clr-grey-700;
+  }
+}
+.text {
+  color: currentColor;
+  opacity: 1;
+  transition: 0.3s ease;
+}
+.spinner {
+  @extend %center;
+  @extend %fit;
+  opacity: 0;
+  transition: 0.3s ease;
+  circle {
+    stroke: currentColor;
   }
 }
 /* #endregion  /**======== Elements =========== */
+
+/* #region  /**=========== Modifiers =========== */
+.isPressed {
+  transform: scale(0.96);
+}
+.loading {
+  .spinner {
+    opacity: 1;
+  }
+  .text {
+    opacity: 0;
+  }
+}
+/* #endregion  /**======== Modifiers =========== */
