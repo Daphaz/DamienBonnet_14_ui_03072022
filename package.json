@@ -12,6 +12,7 @@
     "rollup": "rollup -c",
     "dev": "rollup -c -w",
     "test": "jest",
+    "coverage": "jest --coverage",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook",
     "lint:strict": "eslint --max-warnings=0 lib",
