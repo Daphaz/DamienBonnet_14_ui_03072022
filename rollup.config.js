@@ -8,6 +8,12 @@ import path from 'path';
 
 const packageJson = require('./package.json');
 
+const customResolver = resolve({
+  extensions: ['.mjs', '.js', '.jsx', '.json', '.sass', '.scss'],
+});
+
+const projectRootDir = path.resolve(__dirname);
+
 export default [
   {
     input: 'lib/index.ts',
@@ -25,11 +31,11 @@ export default [
     ],
     plugins: [
       alias({
-        resolve: ['', '.jsx', '.js', '.tsx', '.ts', '.scss'],
         entries: [
           {
-            find: '@',
-            replacement: path.resolve(__dirname, './lib'),
+            find: 'lib',
+            replacement: path.resolve(projectRootDir, 'lib'),
+            customResolver,
           },
         ],
       }),

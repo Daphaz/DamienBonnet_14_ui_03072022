@@ -1,4 +1,5 @@
 export const parameters = {
+  viewMode: 'docs',
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
@@ -6,4 +7,10 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: ['Welcome', ['Introduction'], 'Components', ['Common', 'Fields']],
+    },
+  },
+  controls: { expanded: true },
 };

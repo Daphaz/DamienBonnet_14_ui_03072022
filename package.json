@@ -12,7 +12,7 @@
     "rollup": "rollup -c",
     "dev": "rollup -c -w",
     "test": "jest",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook",
     "lint:strict": "eslint --max-warnings=0 lib",
     "lint:fix": "eslint lib --fix && npm run format",
@@ -36,15 +36,19 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.3",
     "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-docs": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
     "@storybook/addon-links": "^6.5.9",
+    "@storybook/addons": "^6.5.9",
     "@storybook/builder-webpack4": "^6.5.9",
     "@storybook/builder-webpack5": "^6.5.9",
     "@storybook/manager-webpack4": "^6.5.9",
     "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/mdx2-csf": "0.0.3",
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
+    "@storybook/theming": "^6.5.9",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -80,6 +84,9 @@
     "style-loader": "^3.3.1",
     "typescript": "^4.7.4",
     "webpack": "^5.73.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
   },
   "repository": {
     "type": "git",
