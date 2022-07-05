@@ -1,7 +1,9 @@
 <h1 align="center">Welcome to HRnet React component library 👋</h1>
 <p>
+  <a href="https://www.npmjs.com/package/@daphaz/hrnet-ui" target="_blank">
   <img alt="Version" src="https://badge.fury.io/js/@daphaz%2Fhrnet-ui.svg" />
-  <a href="in progress" target="_blank">
+  </a>
+  <a href="https://damien-bonnet-14-ui-03072022.vercel.app/" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
   <a href="#" target="_blank">
@@ -11,7 +13,7 @@
 
 > This is the react component library for HRnet
 
-### ✨ [Demo](in progress)
+### ✨ [Demo](https://damien-bonnet-14-ui-03072022.vercel.app/)
 
 ## Install
 
