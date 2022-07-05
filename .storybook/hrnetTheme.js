@@ -1,7 +1,7 @@
 import { create } from '@storybook/theming';
 
 export default create({
-  base: 'dark',
+  base: 'light',
 
   colorPrimary: '#00798c',
   colorSecondary: '#dd6e42',
@@ -17,7 +17,7 @@ export default create({
 
   // Toolbar default and active colors
   barTextColor: 'white',
-  barSelectedColor: '#00798c',
+  barSelectedColor: '#56ddf2',
   barBg: '#282d30',
 
   // Form colors
