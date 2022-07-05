@@ -1,0 +1,64 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import Input from './Input';
+
+<Meta title='Components/Fields/Input' component={Input} />
+
+# Input
+
+Input stories are based on all attribute of input HTML.
+
+you can provide different props:
+
+- all attribute of input
+- error message
+- custom className for parent container
+
+Let's have a look at our input✨
+
+## Summary
+
+<Canvas>
+  <Story
+    name='Explorer'
+    args={{
+      inputProps: {
+        placeholder: 'Label',
+        disabled: false,
+      },
+    }}
+  >
+    {(args) => (
+      <div>
+        <Input {...args} />
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Input} />
+
+## Disabled
+
+<Story
+  name='Disabled'
+  parameters={{
+    controls: { hideNoControlsWarning: true },
+  }}
+>
+  <Input
+    inputProps={{
+      disabled: true,
+    }}
+  />
+</Story>
+
+## With error
+
+<Story
+  name='With error'
+  parameters={{
+    controls: { hideNoControlsWarning: true },
+  }}
+>
+  <Input error='Is field is required' />
+</Story>
