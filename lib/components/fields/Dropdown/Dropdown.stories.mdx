@@ -1,0 +1,313 @@
+import { Canvas, Meta, Story, ArgsTable, Props } from '@storybook/addon-docs';
+
+import Dropdown from './Dropdown';
+
+<Meta title='Components/Fields/Dropdown' component={Dropdown} />
+
+# Dropdown
+
+Dropdown stories are based on variants.
+
+you can provide different props:
+
+- placeholder: default label inside the button
+- variants: change style of the component
+- bs props add box-shadow
+- you can add class container
+- get the value selected with the onChange function
+- options: is an array of datas you provide inside the list
+
+Let's have a look at our dropdowns✨
+
+## Summary
+
+<Canvas>
+  <Story
+    name='Explorer'
+    args={{
+      placeholder: 'test',
+      options: [
+        {
+          label: 'test1',
+          value: 'test1',
+        },
+        {
+          label: 'test2',
+          value: 'test2',
+        },
+        {
+          label: 'test3',
+          value: 'test3',
+        },
+        {
+          label: 'test4',
+          value: 'test4',
+        },
+        {
+          label: 'test5',
+          value: 'test5',
+        },
+        {
+          label: 'test6',
+          value: 'test6',
+        },
+      ],
+    }}
+  >
+    {(args) => (
+      <div
+        style={{
+          height: 180,
+        }}
+      >
+        <Dropdown {...args} />
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Dropdown} />
+
+## Primary
+
+<Story
+  name='Primary'
+  parameters={{
+    controls: { hideNoControlsWarning: true },
+  }}
+>
+  <div
+    style={{
+      display: 'flex',
+      width: '100%',
+			height: 180,
+      flexWrap: 'wrap',
+      gap: 12,
+    }}
+>
+    <Dropdown
+      placeholder='primary'
+      variants='primary'
+      options={[
+        {
+          label: 'primary',
+          value: 'primary',
+        },
+        {
+          label: 'test2',
+          value: 'test2',
+        },
+        {
+          label: 'test3',
+          value: 'test3',
+        },
+        {
+          label: 'test4',
+          value: 'test4',
+        },
+        {
+          label: 'test5',
+          value: 'test5',
+        },
+        {
+          label: 'test6',
+          value: 'test6',
+        },
+      ]}
+      bs={false}
+    />
+    <Dropdown
+      placeholder='primary-bs'
+      variants='primary'
+      options={[
+        {
+          label: 'primary-bs',
+          value: 'primary-bs',
+        },
+        {
+          label: 'test2',
+          value: 'test2',
+        },
+        {
+          label: 'test3',
+          value: 'test3',
+        },
+        {
+          label: 'test4',
+          value: 'test4',
+        },
+        {
+          label: 'test5',
+          value: 'test5',
+        },
+        {
+          label: 'test6',
+          value: 'test6',
+        },
+      ]}
+    />
+
+  </div>
+</Story>
+
+## Secondary
+
+<Story
+  name='Secondary'
+  parameters={{
+    controls: { hideNoControlsWarning: true },
+  }}
+>
+  <div
+    style={{
+      display: 'flex',
+      width: '100%',
+			height: 180,
+      flexWrap: 'wrap',
+      gap: 12,
+    }}
+	>
+    <Dropdown
+      placeholder='secondary'
+      variants='secondary'
+      options={[
+        {
+          label: 'secondary',
+          value: 'secondary',
+        },
+        {
+          label: 'test2',
+          value: 'test2',
+        },
+        {
+          label: 'test3',
+          value: 'test3',
+        },
+        {
+          label: 'test4',
+          value: 'test4',
+        },
+        {
+          label: 'test5',
+          value: 'test5',
+        },
+        {
+          label: 'test6',
+          value: 'test6',
+        },
+      ]}
+      bs={false}
+    />
+    <Dropdown
+      placeholder='secondary-bs'
+      variants='secondary'
+      options={[
+        {
+          label: 'secondary-bs',
+          value: 'secondary-bs',
+        },
+        {
+          label: 'test2',
+          value: 'test2',
+        },
+        {
+          label: 'test3',
+          value: 'test3',
+        },
+        {
+          label: 'test4',
+          value: 'test4',
+        },
+        {
+          label: 'test5',
+          value: 'test5',
+        },
+        {
+          label: 'test6',
+          value: 'test6',
+        },
+      ]}
+    />
+
+  </div>
+</Story>
+## Grey
+
+<Story
+  name='Grey'
+  parameters={{
+    controls: { hideNoControlsWarning: true },
+  }}
+>
+  <div
+    style={{
+      display: 'flex',
+      width: '100%',
+      height: 180,
+      flexWrap: 'wrap',
+      gap: 12,
+    }}
+  >
+    <Dropdown
+      placeholder='grey'
+      variants='grey'
+      options={[
+        {
+          label: 'grey',
+          value: 'grey',
+        },
+        {
+          label: 'test2',
+          value: 'test2',
+        },
+        {
+          label: 'test3',
+          value: 'test3',
+        },
+        {
+          label: 'test4',
+          value: 'test4',
+        },
+        {
+          label: 'test5',
+          value: 'test5',
+        },
+        {
+          label: 'test6',
+          value: 'test6',
+        },
+      ]}
+      bs={false}
+    />
+    <Dropdown
+      placeholder='grey-bs'
+      variants='grey'
+      options={[
+        {
+          label: 'grey-bs',
+          value: 'grey-bs',
+        },
+        {
+          label: 'test2',
+          value: 'test2',
+        },
+        {
+          label: 'test3',
+          value: 'test3',
+        },
+        {
+          label: 'test4',
+          value: 'test4',
+        },
+        {
+          label: 'test5',
+          value: 'test5',
+        },
+        {
+          label: 'test6',
+          value: 'test6',
+        },
+      ]}
+    />
+  </div>
+</Story>
