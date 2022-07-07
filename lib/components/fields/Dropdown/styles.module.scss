@@ -1,0 +1,168 @@
+@import 'lib/styles/shared.scss';
+
+/* #region  /**=========== Blocks =========== */
+.container {
+  text-align: left;
+  border-radius: 14px;
+  position: relative;
+  width: fit-content;
+  min-width: 204px;
+}
+/* #endregion  /**======== Blocks =========== */
+
+/* #region  /**=========== Elements =========== */
+.input {
+  @extend %between;
+  align-items: center;
+  padding: 4px 10px;
+  height: 40px;
+  border-radius: 14px;
+  user-select: none;
+  cursor: pointer;
+
+  svg path {
+    fill: currentColor;
+  }
+}
+.tool {
+  transform: rotate(-180deg);
+  transform-origin: center center;
+  transition: transform 0.25s ease;
+}
+.selectedValue {
+  margin-right: 10px;
+}
+.menuContainer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  border-radius: 7px 7px 14px 14px;
+  max-height: 150px;
+  background-color: $clr-white;
+  box-shadow: $bs-btn $clr-grey-300;
+  animation: show ease-out 0.25s normal forwards;
+}
+.menu {
+  flex: 1;
+  overflow: auto;
+  margin: 6px 4px;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: $clr-white;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: calc(8px / 2);
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
+.item {
+  @extend %between;
+  align-items: center;
+  padding: 4px 10px;
+  margin-right: 4px;
+  cursor: pointer;
+  border-radius: 9px;
+
+  svg {
+    transform: translateY(-2px);
+  }
+
+  &:first-child {
+    padding-top: 8px;
+  }
+  &:last-child {
+    padding-bottom: 8px;
+  }
+
+  &:hover {
+    background-color: $clr-grey-200;
+  }
+}
+/* #endregion  /**======== Elements =========== */
+
+/* #region  /**=========== Modifiers =========== */
+.primary {
+  .input {
+    background-color: $clr-primary;
+    color: $clr-white;
+
+    &.bs {
+      box-shadow: $bs-btn $clr-primary-light;
+    }
+  }
+
+  .item {
+    &:hover {
+      background-color: $clr-primary-light;
+    }
+  }
+
+  .menu::-webkit-scrollbar-thumb {
+    background: $clr-primary-light;
+  }
+}
+.secondary {
+  .input {
+    background-color: $clr-secondary;
+    color: $clr-white;
+
+    &.bs {
+      box-shadow: $bs-btn $clr-secondary-light;
+    }
+  }
+
+  .item {
+    &:hover {
+      background-color: $clr-secondary-light;
+    }
+  }
+
+  .menu::-webkit-scrollbar-thumb {
+    background: $clr-secondary-light;
+  }
+}
+.grey {
+  .input {
+    background-color: $clr-grey-200;
+    color: $clr-grey-700;
+
+    &.bs {
+      box-shadow: $bs-btn $clr-grey-200;
+    }
+  }
+
+  .item {
+    &:hover {
+      background-color: $clr-grey-200;
+    }
+  }
+
+  .menu::-webkit-scrollbar-thumb {
+    background: $clr-grey-300;
+  }
+}
+
+.isOpen {
+  .tool {
+    transform: rotate(0deg);
+  }
+}
+/* #endregion  /**======== Modifiers =========== */
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  60% {
+    opacity: 0.75;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(4px);
+  }
+}
