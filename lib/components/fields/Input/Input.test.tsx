@@ -1,12 +1,11 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
 import Input from './Input';
 
 describe('<Input/> test suite', () => {
   it('should render correctly', () => {
-    const wrapper = render(
+    const view = render(
       <Input
         inputProps={{
           placeholder: 'placeholder',
@@ -14,11 +13,11 @@ describe('<Input/> test suite', () => {
       />
     );
 
-    expect(() => wrapper.unmount()).not.toThrow();
+    expect(() => view.unmount()).not.toThrow();
   });
 
   it('should set input value', async () => {
-    const wrapper = render(
+    render(
       <Input
         inputProps={{
           placeholder: 'placeholder',
@@ -27,7 +26,7 @@ describe('<Input/> test suite', () => {
       />
     );
 
-    const input = (await wrapper.findByRole('textbox')) as HTMLInputElement;
+    const input = (await screen.findByRole('textbox')) as HTMLInputElement;
     expect(input.value).toEqual('test');
   });
 
@@ -39,8 +38,8 @@ describe('<Input/> test suite', () => {
         (e: React.ChangeEvent<HTMLInputElement>) => (value = e.target.value)
       );
 
-    const wrapper = render(<Input inputProps={{ onChange: callback }} />);
-    const input = (await wrapper.findByRole('textbox')) as HTMLInputElement;
+    render(<Input inputProps={{ onChange: callback }} />);
+    const input = (await screen.findByRole('textbox')) as HTMLInputElement;
 
     expect(callback).not.toHaveBeenCalled();
     fireEvent.change(input, { target: { value: 'test' } });
@@ -50,10 +49,8 @@ describe('<Input/> test suite', () => {
 
   it('should ignore event when input disabled', async () => {
     const callback = jest.fn();
-    const wrapper = render(
-      <Input inputProps={{ disabled: true, onChange: callback }} />
-    );
-    const input = (await wrapper.findByRole('textbox')) as HTMLInputElement;
+    render(<Input inputProps={{ disabled: true, onChange: callback }} />);
+    const input = (await screen.findByRole('textbox')) as HTMLInputElement;
 
     fireEvent.change(input, { target: { value: 'test' } });
     expect(callback).not.toHaveBeenCalled();
@@ -62,11 +59,11 @@ describe('<Input/> test suite', () => {
   it('should display error when props is passed', async () => {
     render(<Input error='test' inputProps={{}} />);
 
-    expect(screen.findByText(/test/i)).toBeTruthy();
+    expect(await screen.findByText(/test/i)).toBeTruthy();
   });
 
   it('should add custom input className properly', async () => {
-    const wrapper = render(
+    render(
       <Input
         inputProps={{
           className: 'test',
@@ -74,7 +71,7 @@ describe('<Input/> test suite', () => {
       />
     );
 
-    const input = (await wrapper.findByRole('textbox')) as HTMLInputElement;
+    const input = (await screen.findByRole('textbox')) as HTMLInputElement;
     expect(input).toHaveClass('test');
   });
 });
