@@ -1,0 +1,191 @@
+import { Canvas, Meta, Story, ArgsTable, Props } from '@storybook/addon-docs';
+// import { React } from '@storybook/react';
+import Modal from './index';
+import Button from '../../fields/Button/Button.tsx';
+
+<Meta title='Components/Common/Modal' component={Modal} />
+
+# Modal
+
+Displays a dialog with a custom content that requires attention or provides additional information.
+
+Let's have a look at our modals✨
+
+## Default
+
+Use `open` prop to control modal displayed
+
+<Canvas>
+  <Story
+    name='Default'
+    args={{
+ 				open: false,
+ 				preventClose: false,
+ 				closeButton: true,
+ 				className: '',
+    }}
+  >
+    {(args) => {
+						const {open,onClose, ...rest} = args
+						const [visible, setVisible] = React.useState(false);
+						const handler = () => setVisible(true);
+
+    					const closeHandler = () => {
+    							setVisible(false);
+    					};
+
+    					return (
+    							<div>
+    									<Button
+    												label='open Modal'
+    												onClick={handler}
+    												/>
+
+    									<Modal open={visible} onClose={closeHandler} {...rest}>
+    											<Modal.Header>mon header</Modal.Header>
+    											<Modal.Body>
+    													<p>this is the body</p>
+    											</Modal.Body>
+    											<Modal.Footer>
+    													<span>A btn footer</span>
+    											</Modal.Footer>
+    									</Modal>
+    							</div>
+    					);
+    			}}
+
+  </Story>
+</Canvas>
+
+<ArgsTable of={Modal} />
+
+## Prevent Close
+
+With `preventClose` props you can't close the Modal by clicking on Backdrop
+
+<Canvas>
+  <Story
+    name='PreventClose'
+    args={{
+ 				open: false,
+ 				preventClose: true,
+ 				closeButton: true,
+ 				className: '',
+    }}
+  >
+    {(args) => {
+						const {open,onClose, ...rest} = args
+						const [visible, setVisible] = React.useState(false);
+						const handler = () => setVisible(true);
+
+    					const closeHandler = () => {
+    							setVisible(false);
+    					};
+
+    					return (
+    							<div>
+    									<Button
+    												label='open Modal'
+    												onClick={handler}
+    												/>
+
+    									<Modal open={visible} onClose={closeHandler} {...rest}>
+    											<Modal.Header>mon header</Modal.Header>
+    											<Modal.Body>
+    													<p>this is the body</p>
+    											</Modal.Body>
+    											<Modal.Footer>
+    													<span>A btn footer</span>
+    											</Modal.Footer>
+    									</Modal>
+    							</div>
+    					);
+    			}}
+
+  </Story>
+</Canvas>
+
+## Modal Components
+
+Use can use three components already styled:
+
+- Modal.Header
+- Modal.Body
+- Modal.Footer
+
+<Canvas>
+  <Story
+    name='Modal Components'
+    args={{
+ 				open: false,
+ 				preventClose: false,
+ 				closeButton: true,
+ 				className: '',
+    }}
+  >
+    {(args) => {
+						const {open,onClose, ...rest} = args
+						const [visible, setVisible] = React.useState(false);
+						const handler = () => setVisible(true);
+
+    					const closeHandler = () => {
+    							setVisible(false);
+    					};
+
+    					return (
+    							<div>
+    									<Button
+    												label='open Modal'
+    												onClick={handler}
+    												/>
+
+    									<Modal open={visible} onClose={closeHandler} {...rest}>
+    											<Modal.Header>mon header</Modal.Header>
+    											<Modal.Body>
+    													<p>this is the body</p>
+    											</Modal.Body>
+    											<Modal.Footer>
+    													<Button
+    												label='close'
+    												onClick={closeHandler}
+    												variant='secondary'
+    															style={{
+    																minWidth: 'auto'
+    															}}
+    												/>
+    											</Modal.Footer>
+    									</Modal>
+    							</div>
+    					);
+    			}}
+
+  </Story>
+</Canvas>
+
+## Extras
+
+Use can use a `useModal` hooks for provide already all state as you needed for modal controls
+
+```ts
+type useModal = (initialVisible: boolean) => {
+  visible: boolean;
+  setVisible: Dispatch<SetStateAction<boolean>>;
+  currentRef: MutableRefObject<boolean>;
+  controls: {
+    open: boolean;
+    onClose: () => void;
+  };
+};
+```
+
+And also if you need to close the Modal in other place use the context
+
+```jsx
+import { useModalContext, Modal } from '@daphaz/hrnet-ui';
+
+const App = () => {
+  const { close } = useModalContext();
+
+  return <button onClick={close}>close modal</button>;
+};
+```

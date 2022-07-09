@@ -1,0 +1,133 @@
+@import 'lib/styles/shared.scss';
+
+/* #region  /**=========== Elements =========== */
+.modal {
+  @extend %flex;
+  position: relative;
+  flex-direction: column;
+  max-width: 100%;
+  vertical-align: middle;
+  overflow: hidden;
+  background: $clr-white;
+  border-radius: 14px;
+  box-shadow: $bs-lg;
+  animation: reboundIn 0.25s ease forwards;
+  padding-top: 1.25rem;
+
+  &:global(.transition_enter):not(:global(.rendered)) {
+    animation: appearIn 0.2s ease-in normal forwards;
+  }
+
+  &:global(.transition_leave) {
+    animation: appearOut 0.5s ease-out;
+  }
+}
+
+.header {
+  @extend %align;
+  flex-shrink: 0;
+  overflow: hidden;
+  color: inherit;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.75rem;
+}
+
+.body {
+  @extend %flex;
+  position: relative;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 0.75rem 1.5rem;
+  overflow-y: auto;
+  text-align: left;
+  font-size: 0.75rem;
+}
+
+.footer {
+  @extend %center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  overflow: hidden;
+  color: inherit;
+  font-size: 0.75rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.btnClose {
+  position: absolute;
+  background: transparent;
+  border: none;
+  z-index: 1;
+  top: 0.375rem;
+  right: 0.25rem;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  height: auto;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: calc(0.75rem * 0.5);
+  color: $clr-grey-400;
+  border-radius: 0.625rem;
+
+  svg {
+    color: currentColor;
+    font-size: 1.15rem;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+/* #endregion  /**======== Elements =========== */
+
+/* #region  /**=========== Modifiers =========== */
+.center {
+  justify-content: center;
+}
+.space {
+  justify-content: space-between;
+}
+/* #endregion  /**======== Modifiers =========== */
+
+@keyframes appearIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  60% {
+    opacity: 0.75;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes appearOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes reboundIn {
+  0% {
+    transform: scale(0.95);
+  }
+  40% {
+    transform: scale(1.02);
+  }
+  80% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

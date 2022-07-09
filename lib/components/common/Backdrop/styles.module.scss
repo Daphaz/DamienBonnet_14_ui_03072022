@@ -1,0 +1,74 @@
+@import 'lib/styles/shared.scss';
+
+/* #region  /**=========== Elements =========== */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  overflow: auto;
+  z-index: 999999;
+  box-sizing: border-box;
+  text-align: center;
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  &:global(.transition_enter) {
+    opacity: 0;
+  }
+
+  &:global(.transition_active) {
+    opacity: 1;
+  }
+
+  &:global(.transition_leave) {
+    opacity: 0;
+  }
+}
+
+.backdropLayer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999999;
+  background: $clr-black;
+  opacity: 0.5;
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdropContent {
+  position: relative;
+  display: inline-block;
+  z-index: 999999;
+  outline: none;
+  width: 100%;
+  max-width: 400px;
+  margin: 36px auto;
+  vertical-align: middle;
+
+  @include sm {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  animation: enterContent 0.2s ease-in normal forwards;
+}
+/* #endregion  /**======== Elements =========== */
+
+@keyframes enterContent {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
