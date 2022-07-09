@@ -3,8 +3,9 @@ import React, { MouseEvent, useState } from 'react';
 
 import s from './styles.module.scss';
 
+import { Spinner } from 'lib/components/common';
+
 import { ButtonVariant } from './enums';
-import { Spinner } from '../../common';
 
 export interface IButtonProps
   extends React.DetailedHTMLProps<

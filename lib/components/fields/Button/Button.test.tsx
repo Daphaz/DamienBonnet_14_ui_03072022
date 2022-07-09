@@ -19,11 +19,16 @@ describe('<Button/> test suite', () => {
   });
 
   it('Should be disabled when attribute is set', () => {
-    render(<Button type='button' label='test label' disabled />);
+    const MockOnClick = jest.fn();
+    render(
+      <Button type='button' label='test label' disabled onClick={MockOnClick} />
+    );
 
     const btn = screen.getByRole<HTMLButtonElement>('button');
+    userEvent.click(btn);
     const isDisabled = btn.disabled;
     expect(isDisabled).toBeTruthy();
+    expect(MockOnClick).not.toHaveBeenCalled();
   });
 
   it('Should be variant secondary when prop is set', () => {
@@ -54,7 +59,7 @@ describe('<Button/> test suite', () => {
     );
 
     expect(mockOnMouseDown).not.toHaveBeenCalled();
-    await userEvent.click(screen.getByRole('button', { name: /test label/i }));
+    userEvent.click(screen.getByRole('button', { name: /test label/i }));
     expect(mockOnMouseDown).toHaveBeenCalled();
   });
 
