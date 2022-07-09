@@ -3,9 +3,11 @@ import React from 'react';
 
 import s from './styles.module.scss';
 
+import { Justify } from '../../utils/prop-types';
+
 interface Props {
   className?: string;
-  justify?: 'center' | 'space';
+  justify?: Justify;
   as?: keyof JSX.IntrinsicElements;
 }
 

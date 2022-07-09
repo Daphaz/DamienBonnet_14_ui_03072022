@@ -83,11 +83,23 @@
 /* #endregion  /**======== Elements =========== */
 
 /* #region  /**=========== Modifiers =========== */
+.flex_start {
+  justify-content: flex-start;
+}
 .center {
   justify-content: center;
 }
-.space {
+.flex_end {
+  justify-content: flex-end;
+}
+.space_between {
   justify-content: space-between;
+}
+.space_around {
+  justify-content: space-around;
+}
+.space_evenly {
+  justify-content: space-evenly;
 }
 /* #endregion  /**======== Modifiers =========== */
 

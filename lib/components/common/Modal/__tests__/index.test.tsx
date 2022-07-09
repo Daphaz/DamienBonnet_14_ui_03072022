@@ -85,7 +85,11 @@ describe('Modal', () => {
         >
           title
         </Modal.Header>
-        <Modal.Body aria-label='modal-body' className='modal-body'>
+        <Modal.Body
+          aria-label='modal-body'
+          className='modal-body'
+          justify='center'
+        >
           body
         </Modal.Body>
         <Modal.Footer

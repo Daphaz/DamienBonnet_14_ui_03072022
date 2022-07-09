@@ -3,9 +3,11 @@ import React from 'react';
 
 import s from './styles.module.scss';
 
+import type { Justify } from '../../utils/prop-types';
+
 export interface Props {
   className?: string;
-  justify?: 'center' | 'space';
+  justify?: Justify;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;

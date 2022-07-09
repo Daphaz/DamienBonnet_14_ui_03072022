@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+export * from './Container';
 export {
   default as Modal,
   ModalBodyProps,
