@@ -1,0 +1,74 @@
+import { Canvas, Meta, Story, ArgsTable, Props } from '@storybook/addon-docs';
+import Container from './Container';
+
+<Meta title='Components/Common/Container' component={Container} />
+
+# Container
+
+A component for fixing an element's width to the current breakpoint.
+
+Let's have a look at our containers✨
+
+## Default
+
+Container which sets a `max-width` at each responsive breakpoint
+
+<Canvas>
+  <Story
+    name='Default'
+    args={{
+      xs: false,
+      sm: false,
+      md: false,
+      lg: false,
+      xl: false,
+      fluid: false,
+      wrap: 'wrap',
+      display: 'block',
+    }}
+  >
+    {(args) => (
+      <Container {...args}>
+        <div style={{ background: '#00798c', color: 'white' }}>
+          The container
+        </div>
+      </Container>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Container} />
+
+## Sizes
+
+Setting it to a breakpoint `(xs,sm,md,lg,xl)` will set the `max-width` of the container
+
+<Story name='Sizes'>
+  <Container display='flex' direction='column' fluid style={{ gap: 14 }}>
+    <Container xs>
+      <div style={{ background: '#00798c', color: 'white' }}>
+        The container xs
+      </div>
+    </Container>
+    <Container sm>
+      <div style={{ background: '#00798c', color: 'white' }}>
+        The container sm
+      </div>
+    </Container>
+    <Container md>
+      <div style={{ background: '#00798c', color: 'white' }}>
+        The container md
+      </div>
+    </Container>
+    <Container lg>
+      <div style={{ background: '#00798c', color: 'white' }}>
+        The container lg
+      </div>
+    </Container>
+    <Container xl>
+      <div style={{ background: '#00798c', color: 'white' }}>
+        The container xl
+      </div>
+    </Container>
+  </Container>
+</Story>

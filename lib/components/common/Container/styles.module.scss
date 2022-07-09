@@ -1,0 +1,144 @@
+@import 'lib/styles/shared.scss';
+
+/* #region  /**=========== Blocks =========== */
+.root {
+  width: 100%;
+  margin: auto;
+}
+/* #endregion  /**======== Blocks =========== */
+
+/* #region  /**=========== Modifiers =========== */
+.flex_start {
+  justify-content: flex-start;
+}
+.center {
+  justify-content: center;
+}
+.flex_end {
+  justify-content: flex-end;
+}
+.space_between {
+  justify-content: space-between;
+}
+.space_around {
+  justify-content: space-around;
+}
+.space_evenly {
+  justify-content: space-evenly;
+}
+
+.a_flex_start {
+  align-items: flex-start;
+}
+.a_center {
+  align-items: center;
+}
+.a_flex_end {
+  align-items: flex-end;
+}
+.a_stretch {
+  align-items: stretch;
+}
+.a_baseline {
+  align-items: baseline;
+}
+
+.ac_flex_start {
+  align-content: flex-start;
+}
+.ac_center {
+  align-content: center;
+}
+.ac_flex_end {
+  align-content: flex-end;
+}
+.ac_stretch {
+  align-content: stretch;
+}
+.ac_space_between {
+  align-content: space-between;
+}
+.ac_space_around {
+  align-content: space-around;
+}
+
+.row {
+  flex-direction: row;
+}
+.row_reverse {
+  flex-direction: row-reverse;
+}
+.column {
+  flex-direction: column;
+}
+.column_reverse {
+  flex-direction: column-reverse;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+.wrap_reverse {
+  flex-wrap: wrap-reverse;
+}
+.nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex {
+  display: flex;
+}
+.block {
+  display: block;
+}
+.grid {
+  display: grid;
+}
+.inline {
+  display: inline;
+}
+.inline_block {
+  display: inline-block;
+}
+.inline_flex {
+  display: inline-flex;
+}
+.inline_grid {
+  display: inline-grid;
+}
+
+.xs {
+  max-width: 650px;
+  @include xs {
+    max-width: 100%;
+  }
+}
+.sm {
+  max-width: 960px;
+  @include sm {
+    max-width: 100%;
+  }
+}
+.md {
+  max-width: 1148px;
+  @include md {
+    max-width: 100%;
+  }
+}
+.lg {
+  max-width: 1280px;
+  @include lg {
+    max-width: 100%;
+  }
+}
+.xl {
+  max-width: 1400px;
+  @include xl {
+    max-width: 100%;
+  }
+}
+
+.fluid {
+  max-width: 100%;
+}
+/* #endregion  /**======== Modifiers =========== */
