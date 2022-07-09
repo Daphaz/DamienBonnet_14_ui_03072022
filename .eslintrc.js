@@ -50,12 +50,13 @@ module.exports = {
       {
         groups: [
           // ext library & side effect imports
-          ['^@?\\w', '^\\u0000'], // {s}css files
+          ['^'],
+          ['^lib?\\w', '^\\u0000'], // {s}css files
           ['^.+\\.s?css$'], // Lib and hooks
-          ['^@/lib', '^@/hooks'], // static data
-          ['^@/data'], // components
-          ['^@/components'], // Other imports
-          ['^@/'], // relative paths up until 3 level
+          ['^lib', '^lib/hooks'], // static data
+          ['^lib/data'], // components
+          ['^lib/components'], // Other imports
+          ['^lib/'], // relative paths up until 3 level
           [
             '^\\./?$',
             '^\\.(?!/?$)',
@@ -66,8 +67,7 @@ module.exports = {
             '^\\.\\./\\.\\./\\.\\./?$',
             '^\\.\\./\\.\\./\\.\\.(?!/?$)',
           ],
-          ['^@/types'], // other that didnt fit in
-          ['^'],
+          ['^lib/types'],
         ],
       },
     ], //#endregion  //*======== Import Sort ===========
