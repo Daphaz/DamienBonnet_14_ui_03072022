@@ -9,10 +9,16 @@ export interface IInputProps {
     HTMLInputElement
   >;
   error?: string;
+  fullWidth?: boolean;
   classContainer?: string;
 }
 
-const Input = ({ inputProps, classContainer, error }: IInputProps) => {
+const Input = ({
+  inputProps,
+  classContainer,
+  fullWidth = false,
+  error,
+}: IInputProps) => {
   /* istanbul ignore next */
   const { className, disabled, onChange, ...rest } = inputProps || {};
 
@@ -28,7 +34,14 @@ const Input = ({ inputProps, classContainer, error }: IInputProps) => {
           <input
             {...rest}
             disabled={!!disabled}
-            className={clsx(s.input, { [s.isError]: !!error }, className)}
+            className={clsx(
+              s.input,
+              {
+                [s.fullWidth]: fullWidth,
+                [s.isError]: !!error,
+              },
+              className
+            )}
             onChange={changeHandler}
           />
         </label>
