@@ -57,7 +57,7 @@ npm i
 
 ```sh
 # for build the lib in production
-npm run rollup
+npm run build
 
 # for development
 npm run dev

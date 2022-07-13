@@ -6,8 +6,11 @@ import dts from 'rollup-plugin-dts';
 import alias from '@rollup/plugin-alias';
 import path from 'path';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import { terser } from 'rollup-plugin-terser';
 
 const packageJson = require('./package.json');
+
+const production = process.env.NODE_ENV === 'production';
 
 const customResolver = resolve({
   extensions: ['.scss'],
@@ -22,12 +25,12 @@ export default [
       {
         file: packageJson.main,
         format: 'cjs',
-        sourcemap: true,
+        sourcemap: !production,
       },
       {
         file: packageJson.module,
         format: 'esm',
-        sourcemap: true,
+        sourcemap: !production,
       },
     ],
     plugins: [
@@ -52,10 +55,12 @@ export default [
           '**/*.test.tsx',
           'lib/setupTests.ts',
         ],
+        sourceMap: !production,
       }),
       postcss({
         modules: true,
       }),
+      production && terser(),
     ],
   },
   {
