@@ -1,6 +1,6 @@
 import { Dispatch, MutableRefObject, SetStateAction } from 'react';
 
-import { useCurrentState } from 'lib/components/hooks';
+import { useCurrentState } from '../../hooks';
 
 const useModal = (
   initialValue = false

@@ -5,11 +5,12 @@ import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
 import alias from '@rollup/plugin-alias';
 import path from 'path';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const packageJson = require('./package.json');
 
 const customResolver = resolve({
-  extensions: ['.mjs', '.js', '.jsx', '.json', '.sass', '.scss'],
+  extensions: ['.scss'],
 });
 
 const projectRootDir = path.resolve(__dirname);
@@ -30,6 +31,8 @@ export default [
       },
     ],
     plugins: [
+      // Preferably set as first plugin.
+      peerDepsExternal(),
       alias({
         entries: [
           {
@@ -41,7 +44,15 @@ export default [
       }),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
+      typescript({
+        tsconfig: './tsconfig.json',
+        exclude: [
+          '**/__tests__',
+          '**/*.test.ts',
+          '**/*.test.tsx',
+          'lib/setupTests.ts',
+        ],
+      }),
       postcss({
         modules: true,
       }),
