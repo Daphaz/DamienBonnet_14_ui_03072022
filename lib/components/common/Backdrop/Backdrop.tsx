@@ -3,8 +3,8 @@ import React, { MouseEvent, useCallback, useMemo } from 'react';
 
 import s from './styles.module.scss';
 
-import { useCurrentState } from 'lib/components/hooks';
-import CSSTransition from 'lib/components/utils/css-transition';
+import { useCurrentState } from '../../hooks';
+import CSSTransition from '../../utils/css-transition';
 
 export interface IBackdropProps {
   onClick?: (ev: MouseEvent<HTMLElement>) => void;

@@ -3,8 +3,8 @@ import React, { SVGProps, useEffect, useMemo, useRef, useState } from 'react';
 
 import s from './styles.module.scss';
 
-import { isChildElement } from 'lib/components/utils/collections';
-import CSSTransition from 'lib/components/utils/css-transition';
+import { isChildElement } from '../../utils/collections';
+import CSSTransition from '../../utils/css-transition';
 
 export interface IModalWrapperProps {
   visible?: boolean;

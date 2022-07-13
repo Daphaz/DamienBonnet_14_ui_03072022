@@ -1,18 +1,13 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-import {
-  useBodyScroll,
-  useCurrentState,
-  usePortal,
-} from 'lib/components/hooks';
-
 import ModalBody from './modal-body';
 import { ModalConfig, ModalContext } from './modal-context';
 import ModalFooter from './modal-footer';
 import ModalHeader from './modal-header';
 import ModalWrapper from './modal-wrapper';
 import { Backdrop } from '../Backdrop';
+import { useBodyScroll, useCurrentState, usePortal } from '../../hooks';
 
 interface Props {
   open?: boolean;
