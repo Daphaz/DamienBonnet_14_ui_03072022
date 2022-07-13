@@ -84,5 +84,11 @@
 .isError {
   border-color: #d1495b44;
   color: $clr-red;
+  &::placeholder {
+    color: $clr-red;
+  }
+}
+.fullWidth {
+  max-width: 100%;
 }
 /* #endregion  /**======== Modifiers =========== */
