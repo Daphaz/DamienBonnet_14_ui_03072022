@@ -20,7 +20,7 @@ const Input = ({
   error,
 }: IInputProps) => {
   /* istanbul ignore next */
-  const { className, disabled, onChange, ...rest } = inputProps || {};
+  const { className, disabled, onChange, id, ...rest } = inputProps || {};
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (disabled) return;
@@ -28,12 +28,15 @@ const Input = ({
   };
 
   return (
-    <div className={clsx(s.control, classContainer)}>
-      <div className={s.mainContainer}>
-        <label className={s.label}>
+    <div
+      className={clsx(s.control, { [s.fullWidth]: fullWidth }, classContainer)}
+    >
+      <div className={clsx(s.mainContainer, { [s.fullWidth]: fullWidth })}>
+        <label className={s.label} htmlFor={id}>
           <input
             {...rest}
             disabled={!!disabled}
+            id={id}
             className={clsx(
               s.input,
               {
